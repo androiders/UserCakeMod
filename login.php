@@ -25,7 +25,7 @@ if(!empty($_POST))
 	
 		//Perform some validation
 		//Feel free to edit / change as required
-		if($username == "")
+		if($usermail == "")
 		{
 			$errors[] = lang("ACCOUNT_SPECIFY_EMAIL");
 		}
@@ -44,7 +44,7 @@ if(!empty($_POST))
 			}
 			else
 			{
-				$userdetails = fetchUserDetails($username);
+				$userdetails = fetchUserDetails($usermail);
 			
 				//See if the user's account is activation
 				if($userdetails["Active"]==0)

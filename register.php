@@ -25,26 +25,26 @@ if(!empty($_POST))
 {
 	$errors = array();
 	$email = trim($_POST["email"]);
-	$username = trim($_POST["name"]);
-  	$surename = trim($_POST["surename"]);
+	$name = trim($_POST["name"]);
+  $surename = trim($_POST["surename"]);
 	$password = trim($_POST["password"]);
 	$confirm_pass = trim($_POST["passwordc"]);
-	$personnalnumber = trim($_POST["personalnumber"]);
+	$personalnumber = trim($_POST["personalnumber"]);
 	
 	//Perform some validation
 	//Feel free to edit / change as required
 		
-	if(minMaxRange(2,25,$username))
+	if(minMaxRange(2,25,$name))
 	{
 		$errors[] = lang("ACCOUNT_NAME_CHAR_LIMIT",array(2,25));
 	}
-	if(minMaxRange(5,25,$surename))
+	if(minMaxRange(2,25,$surename))
 	{
-		$errors[] = lang("ACCOUNT_SURENAME_CHAR_LIMIT",array(5,25));
+		$errors[] = lang("ACCOUNT_SURENAME_CHAR_LIMIT",array(2,25));
 	}		
-	if(minMaxRange(8,50,$password) && minMaxRange(8,50,$confirm_pass))
+	if(minMaxRange(3,50,$password) && minMaxRange(3,50,$confirm_pass))
 	{
-		$errors[] = lang("ACCOUNT_PASS_CHAR_LIMIT",array(8,50));
+		$errors[] = lang("ACCOUNT_PASS_CHAR_LIMIT",array(3,50));
 	}
 	else if($password != $confirm_pass)
 	{
@@ -54,7 +54,7 @@ if(!empty($_POST))
 	{
 		$errors[] = lang("ACCOUNT_INVALID_EMAIL");
 	}
-	if(!isCorrectPersonalNUmber($email))
+	if(!isCorrectPersonalNumber($personalnumber))
 	{
 		$errors[] = lang("ACCOUNT_INVALID_PERSONAL_NUMBER");
 	}
@@ -63,12 +63,15 @@ if(!empty($_POST))
 	if(count($errors) == 0)
 	{	
 		//Construct a user object
-		$user = new User($username,$password,$email);
+		$user = new User($name,$surename,$password,$email,$personalnumber);
 				
 		//Checking this flag tells us whether there were any errors such as possible data duplication occured
 		if(!$user->status)
 		{
-			//if($user->username_taken) $errors[] = lang("ACCOUNT_USERNAME_IN_USE",array($username));
+			if($user->persnr_taken)
+			{ 
+				$errors[] = lang("ACCOUNT_PERSNR_IN_USE");
+			}
 			if($user->email_taken)
 			{
 				$errors[] = lang("ACCOUNT_EMAIL_IN_USE",array($email));
@@ -79,9 +82,20 @@ if(!empty($_POST))
 			//Attempt to add the user to the database, carry out finishing  tasks like emailing the user (if required)
 			if(!$user->userCakeAddUser())
 			{
-				if($user->mail_failure) $errors[] = lang("MAIL_ERROR");
-				if($user->sql_failure)  $errors[] = lang("SQL_ERROR");
+				if($user->mail_failure)
+				{
+					$errors[] = lang("MAIL_ERROR");
+				}
+				if($user->sql_failure)
+				{
+					$errors[] = lang("SQL_ERROR");
+				}
 			}
+			if(!$user->addUserToGroup("Atleter"))
+			{
+				$errors[] = lang("ADD_USER_TO_GROUP_ERROR");
+			}
+			 
 		}
 	}
 }
@@ -145,7 +159,6 @@ if(!empty($_POST))
                     <input type="text" name="surename" />
                 </p>
 
-                
                 <p>
                     <label>Lösenord:</label>
                     <input type="password" name="password" />
@@ -163,7 +176,7 @@ if(!empty($_POST))
                 
                 <p>
                     <label>Personnummer 10 siffror:</label>
-                    <input type="text" name="personnalnumber" />
+                    <input type="text" name="personalnumber" />
                 </p>                
                 
                 <p>
