@@ -80,6 +80,25 @@ class loggedInUser {
 		return ($db->sql_query($sql));
 	}
 	
+	public function getUserGroups()
+	{
+		global $db,$db_table_prefix;
+
+		$sql = "SELECT ".$db_table_prefix."Groups.Group_Name
+			FROM ".$db_table_prefix."UserGroupMap
+			LEFT JOIN ".$db_table_prefix."Groups ON (".$db_table_prefix."Groups.Group_Id = ".$db_table_prefix."UserGroupMap.GroupId)
+			WHERE (".$db_table_prefix."UserGroupMap.UserId = '".$db->sql_escape($this->user_id)."')";
+
+		$result = $db->sql_query($sql);
+		$resArray = array();
+		while ($row = $db->sql_fetchrow($result))
+		{
+			$resArray[]=$row;
+		}
+				
+		return $resArray;
+	}
+	
 	//Fetch all user group information
 	public function groupID()
 	{

@@ -33,7 +33,10 @@
         
         	<p>Welcome to your account page <strong><?php echo $loggedInUser->name." ".$loggedInUser->surename; ?></strong></p>
 
-            <p>Groups: <strong><?php  $group = $loggedInUser->groupID(); echo $group['Group_Name']; ?></strong></p>
+            <p>Groups: <br></br><strong>
+            <?php  $groups = $loggedInUser->getUserGroups();
+            	foreach($groups as $group) 
+            echo $group['Group_Name']."<br>"; ?></strong></p>
           
             
             <p>You joined on <?php echo date("l \\t\h\e jS Y",$loggedInUser->signupTimeStamp()); ?> </p>
