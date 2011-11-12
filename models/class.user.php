@@ -11,8 +11,8 @@ class loggedInUser {
 	public $email = NULL;
 	public $hash_pw = NULL;
 	public $user_id = NULL;
-	public $clean_username = NULL;
-	public $display_username = NULL;
+	public $name = NULL;
+	public $surename = NULL;
 	
 	//Simple function to update the last sign in of a user
 	public function updateLastSignIn()

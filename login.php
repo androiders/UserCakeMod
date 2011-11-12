@@ -71,8 +71,8 @@ if(!empty($_POST))
 						$loggedInUser->email = $userdetails["Email"];
 						$loggedInUser->user_id = $userdetails["User_ID"];
 						$loggedInUser->hash_pw = $userdetails["Password"];
-						$loggedInUser->display_username = $userdetails["Username"];
-						$loggedInUser->clean_username = $userdetails["Username_Clean"];
+						$loggedInUser->name = $userdetails["Name"];
+						$loggedInUser->surename = $userdetails["Surename"];
 						
 						//Update last sign in
 						$loggedInUser->updateLastSignIn();

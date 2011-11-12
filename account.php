@@ -31,9 +31,9 @@
         <div id="main">
         	<h1>Your Account</h1>
         
-        	<p>Welcome to your account page <strong><?php echo $loggedInUser->display_username; ?></strong></p>
+        	<p>Welcome to your account page <strong><?php echo $loggedInUser->name." ".$loggedInUser->surename; ?></strong></p>
 
-            <p>I am a <strong><?php  $group = $loggedInUser->groupID(); echo $group['Group_Name']; ?></strong></p>
+            <p>Groups: <strong><?php  $group = $loggedInUser->groupID(); echo $group['Group_Name']; ?></strong></p>
           
             
             <p>You joined on <?php echo date("l \\t\h\e jS Y",$loggedInUser->signupTimeStamp()); ?> </p>
