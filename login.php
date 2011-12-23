@@ -78,6 +78,9 @@ if(!empty($_POST))
 						$loggedInUser->updateLastSignIn();
 		
 						$_SESSION["userCakeUser"] = $loggedInUser;
+						setcookie("sid", session_id());
+						file_put_contents("log.txt", "Session id: ", FILE_APPEND | LOCK_EX);
+						file_put_contents("log.txt", $_COOKIE['sid'], FILE_APPEND | LOCK_EX);
 						
 						//Redirect to user account page
 						header("Location: account.php");

@@ -1,0 +1,98 @@
+Array
+(
+)
+j6u3jk08c05telfi8lqlmndlv2Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Array
+(
+)
+fpc9qb1ro9n89can7uk6pdtp36Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Array
+(
+)
+curbc1pdvbn0a1dkdl3stjlll3Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Array
+(
+)
+9t2a6mrmsqfk8kbu47v67a7sr1Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Array
+(
+)
+9t2a6mrmsqfk8kbu47v67a7sr1Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Session id: Array
+(
+    [userCakeUser] => loggedInUser Object
+        (
+            [email] => andfol@gmail.com
+            [hash_pw] => 81d03ce2adb7e2f1778f99c6a6a3adf2afdfc63fdd34e0df8d8306c606b4eec87
+            [user_id] => 1
+            [name] => Anders
+            [surename] => Folkesson
+        )
+
+)
+9t2a6mrmsqfk8kbu47v67a7sr1Array
+(
+    [userCakeUser] => loggedInUser Object
+        (
+            [email] => andfol@gmail.com
+            [hash_pw] => 81d03ce2adb7e2f1778f99c6a6a3adf2afdfc63fdd34e0df8d8306c606b4eec87
+            [user_id] => 1
+            [name] => Anders
+            [surename] => Folkesson
+        )
+
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Array
+(
+)
+nm7fo0vbn1upj7h2vlq8q05q33Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)
+Array
+(
+)
+9t2a6mrmsqfk8kbu47v67a7sr1Array
+(
+)
+Array
+(
+    [method] => getLoggedInUser
+)

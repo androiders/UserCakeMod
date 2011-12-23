@@ -21,8 +21,8 @@
 	$langauge = "en";
 	
 	//Generic website variables
-	$websiteName = "User Cake";
-	$websiteUrl = "http://yourdomain.com/"; //including trailing slash
+	$websiteName = "CFNet";
+	$websiteUrl = "http://www.androiders.se"; //including trailing slash
 
 	//Do you wish UserCake to send out emails for confirmation of registration?
 	//We recommend this be set to true to prevent spam bots.

@@ -40,6 +40,10 @@
 	require_once("funcs.general.php");
 	require_once("class.newuser.php");
 
+	if(isset($_COOKIE['sid']))
+	{
+		session_id($_COOKIE['sid']);
+	}
 	session_start();
 	
 	//Global User Object Var

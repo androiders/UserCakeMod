@@ -110,9 +110,10 @@ function destorySession($name)
 {
 	if(isset($_SESSION[$name]))
 	{
-		$_SESSION[$name] = NULL;
-			
-		unset($_SESSION[$name]);
+		//unset($_SESSION[$name]);
+		session_unset();
+		session_destroy();
+//		$_SESSION[$name] = NULL;
 	}
 }
 
